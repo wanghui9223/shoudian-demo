@@ -779,6 +779,10 @@
     line-height: 1;
 
     margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
 
   }
 
@@ -958,6 +962,7 @@
 
     padding: 60px 0 40px;
 
+    text-align: left;
   }
 
   .footer-grid {
@@ -970,6 +975,7 @@
 
     margin-bottom: 48px;
 
+    text-align: left;
   }
 
   .footer-brand .footer-logo {
@@ -982,6 +988,7 @@
 
     margin-bottom: 16px;
 
+    text-align: left;
   }
 
   .footer-logo-icon {
@@ -1006,6 +1013,7 @@
 
     color: var(--deep-blue);
 
+    text-align: left;
   }
 
   .footer-logo-text {
@@ -1016,6 +1024,7 @@
 
     color: #fff;
 
+    text-align: left;
   }
 
   .footer-brand p {
@@ -1028,6 +1037,7 @@
 
     margin-bottom: 20px;
 
+    text-align: left;
   }
 
   .footer-promise {
@@ -1046,6 +1056,7 @@
 
     line-height: 1.6;
 
+    text-align: left;
   }
 
   .footer-promise strong { color: var(--gold); }
@@ -1064,6 +1075,7 @@
 
     padding-bottom: 10px;
 
+    text-align: left;
   }
 
   .footer-col h4::after {
@@ -1082,12 +1094,14 @@
 
     background: var(--gold);
 
+    text-align: left;
   }
 
   .footer-col ul {
 
     list-style: none;
 
+    text-align: left;
   }
 
   .footer-col ul li { margin-bottom: 12px; }
@@ -1102,6 +1116,7 @@
 
     transition: color 0.2s;
 
+    text-align: left;
   }
 
   .footer-col ul li a:hover { color: var(--gold); }
@@ -1118,6 +1133,7 @@
 
     font-size: 14px;
 
+    text-align: left;
   }
 
   .footer-contact-icon {
@@ -1140,6 +1156,7 @@
 
     flex-shrink: 0;
 
+    text-align: left;
   }
 
   .footer-bottom {
@@ -1150,12 +1167,13 @@
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content: flex-start;
 
     align-items: center;
 
     font-size: 13px;
 
+    text-align: left !important;
   }
 
   .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
@@ -1564,6 +1582,14 @@
 
   }
 
+
+footer.footer,
+footer.footer .footer-bottom,
+footer.footer .footer-bottom span {
+    text-align: left !important;
+    justify-content: flex-start !important;
+    display: block !important;
+}
 </style>
 
 </head>
@@ -1580,7 +1606,7 @@
 
     <a href="#" class="nav-logo">
 
-      <img src="images/logo.webp" alt="巽通售电" style="width:40px;height:40px;border-radius:50%;object-fit:cover;">
+      <img src="logo.webp" alt="巽通售电" style="width:40px;height:40px;border-radius:50%;object-fit:cover;">
 
       <span class="nav-logo-text">巽通售电</span>
 
@@ -1702,7 +1728,7 @@
 
       <div class="case-card fade-up">
 
-        <img src="images/hardware_factory.jpg" alt="五金厂" class="case-card-img">
+        <img src="hardware_factory.jpg" alt="五金厂" class="case-card-img">
 
         <div class="case-card-header">
 
@@ -1760,7 +1786,7 @@
 
       <div class="case-card fade-up" style="transition-delay: 0.1s">
 
-        <img src="images/injection_molding_factory.jpg" alt="注塑厂" class="case-card-img">
+        <img src="injection_molding_factory.jpg" alt="注塑厂" class="case-card-img">
 
         <div class="case-card-header">
 
@@ -1818,7 +1844,7 @@
 
       <div class="case-card fade-up" style="transition-delay: 0.2s">
 
-        <img src="images/packaging_factory.jpg" alt="包装厂" class="case-card-img">
+        <img src="packaging_factory.jpg" alt="包装厂" class="case-card-img">
 
         <div class="case-card-header">
 
@@ -1962,7 +1988,7 @@
 
         <div class="footer-logo">
 
-          <img src="images/logo.webp" alt="巽通售电" style="width:44px;height:44px;border-radius:50%;object-fit:cover;">
+          <img src="logo.webp" alt="巽通售电" style="width:44px;height:44px;border-radius:50%;object-fit:cover;">
 
           <span class="footer-logo-text">巽通售电</span>
 
@@ -2022,7 +2048,7 @@
 
         </div>
 
-<div class="footer-bottom">
+<div class="footer-bottom" style="text-align: left !important;">
 
       <span>© 2025 巽通售电 · 湖北企业用电服务 · 保留所有权利</span>
 
