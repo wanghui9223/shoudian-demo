@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <script async src="https://tally.so/widgets/embed.js"></script>
@@ -344,7 +344,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero">首页</a></li>
       <li><a href="#market">市场化查询</a></li>
-      <li><a href="#pricepub">价格发布</a></li>
+      <li><a href="#price">价格发布</a></li>
       <li><a href="#articles">行业资讯</a></li>
       <li><a href="#tally-open=gDJqJP&tally-emoji-text=%F0%9F%91%8B&tally-emoji-animation=wave" class="nav-cta">免费咨询</a></li>
     </ul>
@@ -479,6 +479,13 @@
             <td style="padding:12px;text-align:center;color:#c62828;font-weight:bold;">1.0267</td>
             <td style="padding:12px;text-align:center;color:#2e7d32;">0.5150</td>
             <td style="padding:12px;text-align:center;color:#d4a843;font-weight:bold;">0.5117</td>
+          </tr><tr>
+            <td style="padding:12px;text-align:center;font-weight:bold;color:#1a3a6b;">2026年7月</td>
+            <td style="padding:12px;text-align:center;">0.3642</td>
+            <td style="padding:12px;text-align:center;">0.7082</td>
+            <td style="padding:12px;text-align:center;color:#c62828;">1.0931</td>
+            <td style="padding:12px;text-align:center;color:#2e7d32;">0.4965</td>
+            <td style="padding:12px;text-align:center;color:#d4a843;font-weight:bold;">0.5966</td>
           </tr>
         </tbody>
       </table>
@@ -489,7 +496,7 @@
     <!-- 效果二：趋势图 -->
     <div class="fade-up" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.06);">
       <div style="font-size:18px;color:#1a3a6b;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #d4a843;display:flex;align-items:center;gap:8px;">
-        <span style="font-size:20px;">&#128200;</span> 1-6月份电价趋势
+        <span style="font-size:20px;">&#128200;</span> 1-7月份电价趋势
       </div>
       <div class="chart-scroll-outer" style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
         <div style="position:relative;height:320px;min-width:750px;" id="priceChartWrap">
@@ -515,6 +522,7 @@
         <button class="price-tab-btn" onclick="showPriceMonth(4, this)">2026年4月</button>
         <button class="price-tab-btn" onclick="showPriceMonth(5, this)">2026年5月</button>
         <button class="price-tab-btn" onclick="showPriceMonth(6, this)">2026年6月</button>
+      <button class="price-tab-btn" onclick="showPriceMonth(7, this)">2026年7月</button>
       </div>
       <!-- Tab panels -->
       <div id="pricePanels">
@@ -592,6 +600,19 @@
         </div>
       </div>
     </div>
+        <!-- 2026年7月 -->
+        <div class="price-panel" id="pricePanel7">
+          <div style="background:#f8f9fc;border-radius:12px;padding:16px;margin-bottom:16px;text-align:center;">
+            <p style="color:#1a3a6b;font-weight:bold;font-size:15px;">2026年7月 代理购电价格表（执行时间：2026年7月1日-7月31日）</p>
+            <p style="color:#888;font-size:12px;margin-top:4px;">来源：国网湖北省电力有限公司 · 网上国网</p>
+          </div>
+          <div style="text-align:center;">
+            <a href="price_imgs/国网代购电202607.jpg" target="_blank">
+              <img src="price_imgs/国网代购电202607.jpg" alt="2026年7月代理购电价格表" style="max-width:100%;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.12);cursor:pointer;">
+            </a>
+          </div>
+        </div>
+
   </div>
 </section>
 
@@ -606,165 +627,98 @@
     </div>
     <div class="articles-grid">
 
+
       <!-- Article 1 -->
       <div class="article-card fade-up">
+        <a href="info/article_2026-07-04_01.html" target="_blank" style="text-decoration:none;color:inherit;">
         <div class="article-card-header">
-          <div class="article-date">2026-06-27</div>
-          <div class="article-title">华泰证券：电力发展将迎来超级周期，持续性和幅度都会更超预期</div>
+          <div class="article-date">2026-07-01</div>
+          <div class="article-title">分布式光伏发电与基本电费：很多人算漏了的一笔账</div>
         </div>
         <div class="article-tag-row">
-          <span class="article-tag">电力行业</span>
-          <span class="article-tag">超级周期</span>
-          <span class="article-tag">投资机会</span>
+          <span class="article-tag">光伏</span>
+          <span class="article-tag">基本电费</span>
+          <span class="article-tag">湖北</span>
+          <span class="article-tag">需量电费</span>
         </div>
         <div class="article-card-body">
-          <p class="article-summary">华泰证券预测电力发展将迎来超级周期，主网设备紧缺和传统电源设备出海带来差异化投资机会。与市场不同，基于海外AI发展和国内电气化率提升，电力需求增长幅度和持续时间均超预期。</p>
+          <p class="article-summary">装了分布式光伏，电费就一定省了吗？光伏发电量这笔账大家都算得清楚，但光伏对基本电费的影响，90%的项目都算漏了。</p>
         </div>
+        </a>
       </div>
 
       <!-- Article 2 -->
       <div class="article-card fade-up" style="transition-delay:0.05s">
+        <a href="info/article_2026-07-04_02.html" target="_blank" style="text-decoration:none;color:inherit;">
         <div class="article-card-header">
-          <div class="article-date">2026-06-27</div>
-          <div class="article-title">2026年中国电力供需总体紧平衡，局部地区高峰时段电力供应偏紧</div>
+          <div class="article-date">2026-07-02</div>
+          <div class="article-title">电网代理购电：为什么你的电费比隔壁厂贵？</div>
         </div>
         <div class="article-tag-row">
-          <span class="article-tag">电力供需</span>
-          <span class="article-tag">用电量</span>
-          <span class="article-tag">新型电力系统</span>
+          <span class="article-tag">电网代理购电</span>
+          <span class="article-tag">市场化</span>
+          <span class="article-tag">电费比较</span>
         </div>
         <div class="article-card-body">
-          <p class="article-summary">2025年全社会用电量首破10万亿千瓦时，同比增长5.0%。预计2026年中国电力供需总体紧平衡，局部地区高峰时段电力供应偏紧。</p>
+          <p class="article-summary">同样是工厂，为什么有的电费单价比市场化交易价格还低？答案藏在电网代理购电的定价机制里。</p>
         </div>
+        </a>
       </div>
 
       <!-- Article 3 -->
       <div class="article-card fade-up" style="transition-delay:0.1s">
+        <a href="info/article_2026-07-04_03.html" target="_blank" style="text-decoration:none;color:inherit;">
         <div class="article-card-header">
-          <div class="article-date">2026-06-27</div>
-          <div class="article-title">国家能源局：2026年将通过"立新规、强新序、建新制"进一步规范电力零售市场</div>
+          <div class="article-date">2026-07-03</div>
+          <div class="article-title">电力零售市场：售电公司和电网代理购电，到底差在哪？</div>
         </div>
         <div class="article-tag-row">
-          <span class="article-tag">国家能源局</span>
-          <span class="article-tag">电力零售市场</span>
-          <span class="article-tag">售电公司</span>
-        </div>
-        <div class="article-card-body">
-          <p class="article-summary">国家能源局2026年将从制度、运营、管理三方面规范电力零售市场，推动售电公司从价差套利向服务增值转型。</p>
-        </div>
-      </div>
-
-      <!-- Article 4 -->
-      <div class="article-card fade-up" style="transition-delay:0.15s">
-        <div class="article-card-header">
-          <div class="article-date">2026-06-27</div>
-          <div class="article-title">2026年电改新规落地，售电公司靠差价赚钱的日子结束了</div>
-        </div>
-        <div class="article-tag-row">
-          <span class="article-tag">电改</span>
+          <span class="article-tag">电力零售</span>
           <span class="article-tag">售电公司</span>
           <span class="article-tag">市场化</span>
         </div>
         <div class="article-card-body">
-          <p class="article-summary">2026年电改新规落地，售电公司不再只靠差价赚钱，行业出清速度明显加快。2025年多个省份集中清退违规售电公司。</p>
+          <p class="article-summary">买电这件事，表面上是选供电方，实际上是选一种市场参与方式。选对了省心省钱，选错了中间的资金成本也在悄悄流失。</p>
         </div>
+        </a>
+      </div>
+
+      <!-- Article 4 -->
+      <div class="article-card fade-up" style="transition-delay:0.15s">
+        <a href="info/article_2026-07-04_04.html" target="_blank" style="text-decoration:none;color:inherit;">
+        <div class="article-card-header">
+          <div class="article-date">2026-07-04</div>
+          <div class="article-title">电费账单里的"系统运行费"：到底是什么，怎么算的，谁在承担？</div>
+        </div>
+        <div class="article-tag-row">
+          <span class="article-tag">系统运行费</span>
+          <span class="article-tag">输配电价</span>
+          <span class="article-tag">市场化</span>
+        </div>
+        <div class="article-card-body">
+          <p class="article-summary">打开你的电费账单，有没有注意到一个叫"系统运行费"的项目？这笔钱从哪儿来、谁该交、交多少？2026年以来各地都在涨，今天一次说清楚。</p>
+        </div>
+        </a>
       </div>
 
       <!-- Article 5 -->
       <div class="article-card fade-up" style="transition-delay:0.2s">
+        <a href="info/article_2026-07-04_05.html" target="_blank" style="text-decoration:none;color:inherit;">
         <div class="article-card-header">
-          <div class="article-date">2026-06-27</div>
-          <div class="article-title">26省份输配电价改革全面提速，国家电网加速电力改革</div>
+          <div class="article-date">2026-07-05</div>
+          <div class="article-title">电力市场中长期交易：你的电费账单，正在被什么改变？</div>
         </div>
         <div class="article-tag-row">
-          <span class="article-tag">输配电价</span>
-          <span class="article-tag">电力改革</span>
-          <span class="article-tag">国家电网</span>
+          <span class="article-tag">中长期交易</span>
+          <span class="article-tag">双轨制</span>
+          <span class="article-tag">市场化</span>
         </div>
         <div class="article-card-body">
-          <p class="article-summary">国家电网26省份输配电价改革全面提速，除西藏外所有省级电网年底前完成成本监审，建立公平透明的电力市场定价机制。</p>
+          <p class="article-summary">电力市场的"双轨制"正在消失——计划电的份额年年萎缩，市场化的版图年年扩大。读懂这个趋势，才能知道你的电费为什么会变。</p>
         </div>
+        </a>
       </div>
 
-      <!-- Article 6 -->
-      <div class="article-card fade-up" style="transition-delay:0.25s">
-        <div class="article-card-header">
-          <div class="article-date">2026-06-27</div>
-          <div class="article-title">2026年电力工程行业：AI算力爆发拉动电力基础设施投资，特高压与配电网建设双线推进</div>
-        </div>
-        <div class="article-tag-row">
-          <span class="article-tag">特高压</span>
-          <span class="article-tag">电力工程</span>
-          <span class="article-tag">AI算力</span>
-        </div>
-        <div class="article-card-body">
-          <p class="article-summary">AI算力爆发拉动电力基础设施投资，2026年预计核准5条特高压直流线路，电网投资高景气延续。国家电网2025年输变电设备招标金额达919亿元，同比增长26%。</p>
-        </div>
-      </div>
-
-      <!-- Article 7 -->
-      <div class="article-card fade-up" style="transition-delay:0.3s">
-        <div class="article-card-header">
-          <div class="article-date">2026-06-27</div>
-          <div class="article-title">河南深化新能源上网电价市场化改革：存量项目执行煤电基准价</div>
-        </div>
-        <div class="article-tag-row">
-          <span class="article-tag">河南</span>
-          <span class="article-tag">新能源</span>
-          <span class="article-tag">电价市场化</span>
-        </div>
-        <div class="article-card-body">
-          <p class="article-summary">河南深化新能源上网电价改革，存量项目执行煤电基准价，增量项目竞价形成机制电价。自2026年1月1日起全省新能源上网电量全部进入电力市场。</p>
-        </div>
-      </div>
-
-      <!-- Article 8 -->
-      <div class="article-card fade-up" style="transition-delay:0.35s">
-        <div class="article-card-header">
-          <div class="article-date">2026-06-27</div>
-          <div class="article-title">2026工业电气配套三大趋势：正品、技术、交付，代理商如何破局</div>
-        </div>
-        <div class="article-tag-row">
-          <span class="article-tag">工业电气</span>
-          <span class="article-tag">充换电服务</span>
-          <span class="article-tag">一体化服务</span>
-        </div>
-        <div class="article-card-body">
-          <p class="article-summary">2026工业电气配套行业迎来政策与市场双驱动，正从单一产品供应转向"正品+技术+交付"一体化服务。充换电服务业用电量增速达48.8%。</p>
-        </div>
-      </div>
-
-      <!-- Article 9 -->
-      <div class="article-card fade-up" style="transition-delay:0.4s">
-        <div class="article-card-header">
-          <div class="article-date">2026-06-27</div>
-          <div class="article-title">中信证券：预计2026年供需宽松和改革推动电价下行风险加大</div>
-        </div>
-        <div class="article-tag-row">
-          <span class="article-tag">中信证券</span>
-          <span class="article-tag">电价下行</span>
-          <span class="article-tag">储能</span>
-        </div>
-        <div class="article-card-body">
-          <p class="article-summary">中信证券预测2026年供需宽松和改革推动电价下行，水电具备更强抗周期下行能力。电量市场新平衡拐点或在2028年出现。</p>
-        </div>
-      </div>
-
-      <!-- Article 10 -->
-      <div class="article-card fade-up" style="transition-delay:0.45s">
-        <div class="article-card-header">
-          <div class="article-date">2026-06-27</div>
-          <div class="article-title">2026年电力行业发展四大趋势：清洁化、智能化、市场化、新能源占比提升</div>
-        </div>
-        <div class="article-tag-row">
-          <span class="article-tag">电力行业</span>
-          <span class="article-tag">清洁能源</span>
-          <span class="article-tag">智能电网</span>
-        </div>
-        <div class="article-card-body">
-          <p class="article-summary">2026年电力行业发展四大趋势：清洁能源占比提升、系统智能化、市场开放化、产业创新加速。电力系统将通过物联网、大数据、AI实现精准匹配。</p>
-        </div>
-      </div>
 
     </div>
   </div>
@@ -820,7 +774,7 @@
         <ul>
           <li><a href="#hero">首页</a></li>
           <li><a href="#market">市场化查询</a></li>
-          <li><a href="#pricepub">价格发布</a></li>
+          <li><a href="#price">价格发布</a></li>
           <li><a href="#articles">行业资讯</a></li>
         </ul>
       </div>
@@ -1001,11 +955,11 @@ document.addEventListener("DOMContentLoaded", function() {
   var ctx = document.getElementById("priceChart");
   if (!ctx) return;
   ctx = ctx.getContext("2d");
-  var months    = ["1月","2月","3月","4月","5月","6月"];
-  var flatP     = [0.7359,0.7222,0.7113,0.7032,0.6982,0.7166];
-  var peakP     = [1.1340,1.0114,1.0255,1.0198,1.0040,1.0267];
-  var valleyP   = [0.5169,0.5343,0.5071,0.4974,0.4994,0.5150];
-  var agentP    = [0.3845,0.3452,0.3730,0.3789,0.3601,0.3645];
+  var months    = ["1月","2月","3月","4月","5月","6月","7月"];
+  var flatP     = [0.7359,0.7222,0.7113,0.7032,0.6982,0.7166,0.7082];
+  var peakP     = [1.1340,1.0114,1.0255,1.0198,1.0040,1.0267,1.0931];
+  var valleyP   = [0.5169,0.5343,0.5071,0.4974,0.4994,0.5150,0.4965];
+  var agentP    = [0.3845,0.3452,0.3730,0.3789,0.3601,0.3645,0.3642];
   new Chart(ctx, {
     type: "line",
     data: {
@@ -1032,11 +986,11 @@ document.addEventListener("DOMContentLoaded", function() {
           var meta = chart.getDatasetMeta(di);
           meta.data.forEach(function(point, pi) {
             var val = ds.data[pi];
-            var xOffset = (pi === 0) ? 12 : (pi === 5) ? -12 : (pi === 1) ? 8 : (pi === 4) ? -8 : 0;
+            var xOffset = (pi === 0) ? 12 : (pi === 5) ? -12 : (pi === 6) ? -12 : (pi === 1) ? 8 : (pi === 4) ? -8 : 0;
             var x = point.x + xOffset;
             var y = point.y - 16;
             ctx.save();
-            ctx.font = "10px Microsoft YaHei";
+            ctx.font = "9px Microsoft YaHei";
             ctx.fillStyle = colors[di];
             ctx.textAlign = "center";
             ctx.fillText(val.toFixed(4), x, y);
@@ -1098,7 +1052,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var ctx = document.getElementById("priceChart");
   if (!ctx) return;
   ctx = ctx.getContext("2d");
-  var months    = ["1月","2月","3月","4月","5月","6月"];
+  var months    = ["1月","2月","3月","4月","5月","6月","7月"];
   var flatP     = [0.7359,0.7222,0.7113,0.7032,0.6982,0.7166];
   var peakP     = [1.1340,1.0114,1.0255,1.0198,1.0040,1.0267];
   var valleyP   = [0.5169,0.5343,0.5071,0.4974,0.4994,0.5150];
@@ -1129,11 +1083,11 @@ document.addEventListener("DOMContentLoaded", function() {
           var meta = chart.getDatasetMeta(di);
           meta.data.forEach(function(point, pi) {
             var val = ds.data[pi];
-            var xOffset = (pi === 0) ? 12 : (pi === 5) ? -12 : (pi === 1) ? 8 : (pi === 4) ? -8 : 0;
+            var xOffset = (pi === 0) ? 12 : (pi === 5) ? -12 : (pi === 6) ? -12 : (pi === 1) ? 8 : (pi === 4) ? -8 : 0;
             var x = point.x + xOffset;
             var y = point.y - 16;
             ctx.save();
-            ctx.font = "10px Microsoft YaHei";
+            ctx.font = "9px Microsoft YaHei";
             ctx.fillStyle = colors[di];
             ctx.textAlign = "center";
             ctx.fillText(val.toFixed(4), x, y);
