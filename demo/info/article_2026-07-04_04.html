@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电费账单里的"系统运行费"：到底是什么，怎么算的，谁在承担？ &#xB7; 巽通售电</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif; color: #1a1a2e; background: #f5f7fa; line-height: 1.7; }
+  :root { --deep-blue: #1a3a6b; --mid-blue: #1e5fa8; --light-blue: #e8f0fb; --gold: #d4a843; --dark: #1a1a2e; --gray: #666; }
+  .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(26,58,107,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212,168,67,0.3); }
+  .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 70px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+  .nav-logo-icon { width: 36px; height: 36px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold; color: var(--deep-blue); }
+  .nav-logo-text { font-size: 20px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav-cta { background: var(--gold); color: var(--deep-blue) !important; padding: 8px 20px; border-radius: 4px; font-weight: 600 !important; }
+  .article-header { background: linear-gradient(135deg, var(--deep-blue), #0f2d5e); color: #fff; padding: 120px 0 60px; text-align: center; }
+  .article-header .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  .article-date { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+  .article-title { font-size: 36px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; }
+  .article-body { max-width: 800px; margin: 0 auto; padding: 0 24px 80px; background: #fff; border-radius: 0 0 12px 12px; box-shadow: 0 4px 24px rgba(26,58,107,0.08); }
+  .article-intro-header { display: flex; justify-content: space-between; align-items: center; padding: 24px 0 0; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--mid-blue); text-decoration: none; font-size: 14px; font-weight: 600; }
+  .back-link:hover { color: var(--deep-blue); }
+  .pub-date { font-size: 13px; color: var(--gray); }
+  .intro-divider { border: none; border-top: 1px solid #eee; margin: 20px 0; }
+  .core-quote { background: var(--light-blue); border-radius: 8px; padding: 20px 24px; margin: 0 0 20px; }
+  .core-quote p { font-size: 17px; color: var(--dark); line-height: 1.8; font-weight: 500; }
+  .meta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .read-time { font-size: 13px; color: var(--gray); }
+  .meta-sep { color: #ddd; }
+  .tag-list { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag-item { font-size: 12px; color: var(--mid-blue); background: var(--light-blue); padding: 2px 10px; border-radius: 10px; font-weight: 500; }
+  .section-divider { border: none; border-top: 2px solid var(--light-blue); margin: 0 0 32px; }
+  .article-body h2 { font-size: 22px; font-weight: 700; color: var(--deep-blue); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--light-blue); }
+  .article-body h3 { font-size: 18px; font-weight: 700; color: var(--dark); margin: 30px 0 12px; }
+  .article-body p { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 16px; }
+  .article-body strong { color: var(--deep-blue); font-weight: 600; }
+  .article-body blockquote { background: var(--light-blue); border-radius: 8px; padding: 14px 20px; margin: 20px 0; font-size: 15px; color: var(--dark); line-height: 1.7; }
+  .article-body ul { margin: 16px 0; padding-left: 24px; }
+  .article-body li { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 8px; }
+  .article-body hr { border: none; border-top: 1px solid #eee; margin: 32px 0; }
+  .table-wrapper { overflow-x: auto; margin: 20px 0; }
+  .article-body table { width: 100%; border-collapse: collapse; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef; }
+  .article-body td, .article-body th { padding: 10px 14px; border: 1px solid #e9ecef; text-align: left; }
+  
+  .article-body tr:nth-child(even) { background: #f8f9fa; }
+  .article-body thead > tr { background: var(--deep-blue); color: #fff; }
+
+  .article-footer { max-width: 800px; margin: 0 auto 60px; padding: 0 24px; }
+  .cta-box { background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue)); border-radius: 12px; padding: 32px; color: #fff; text-align: center; }
+  .cta-box h3 { font-size: 20px; margin-bottom: 10px; }
+  .cta-box p { font-size: 14px; color: rgba(255,255,255,0.8); margin-bottom: 20px; }
+  .cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--deep-blue); padding: 12px 28px; border-radius: 6px; font-size: 15px; font-weight: 700; text-decoration: none; }
+  @media (max-width: 768px) { .article-title { font-size: 26px; } .article-body { padding: 32px 16px 60px; } .nav-links { display: none; } }
+</style>
+<script async src="https://tally.so/widgets/embed.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="../index_new.html" class="nav-logo">
+      <div class="nav-logo-icon">电</div>
+      <span class="nav-logo-text">巽通售电</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index_new.html#hero">首页</a></li>
+      <li><a href="../index_new.html#articles">行业资讯</a></li>
+      <li><a href="../index_new.html#process">合作流程</a></li>
+      <li><a href="../index_new.html#footer">联系我们</a></li>
+      <li><a href="#" class="nav-cta">免费咨询</a></li>
+    </ul>
+  </div>
+</nav>
+<header class="article-header">
+  <div class="container">
+    <div class="article-date">📅 2026-07-04</div>
+    <h1 class="article-title">电费账单里的"系统运行费"：到底是什么，怎么算的，谁在承担？</h1>
+  </div>
+</header>
+<div class="article-body">
+  <div class="article-intro-header">
+    <a href="../index_new.html#articles" class="back-link">&#8592; &#x8FD4;&#x56DE;行业资讯</a>
+    <span class="pub-date">📅 2026-07-04</span>
+  </div>
+  <hr class="intro-divider">
+  <div class="core-quote">
+    <p>打开你的电费账单，有没有注意到一个叫"系统运行费"的项目？这笔钱从哪儿来、谁该交、交多少？2026年以来各地都在涨，今天一次说清楚。</p>
+  </div>
+  <div class="meta-row">
+    <span class="read-time">⏱ 阅读约 4 分钟</span>
+    <span class="meta-sep">|</span>
+    <div class="tag-list">
+      <span class="tag-item">系统运行费</span><span class="tag-item">湖北</span><span class="tag-item">电价调整</span>
+    </div>
+  </div>
+  <p style="font-size:13px;color:#999;margin:0 0 12px;">&#128221; 作者：灵犀 &middot; 2026-07-04</p>
+  <hr class="section-divider">
+<h2>什么是系统运行费？</h2>
+<p>系统运行费是我国输配电价<strong>第三监管周期</strong>（2023年6月起）新设立的电费科目。</p>
+<p>简单说，它是除了输配电价之外，额外收取的一笔"电力系统维护费"——<strong>全社会为电力系统调节能力买单，谁受益、谁承担。</strong></p>
+<p><strong>2026年为什么突然变贵了？</strong>
+两个原因：
+1. <strong>新能源全面入市（136号文）</strong> — 新能源不再享有政府保障性收购，需要通过市场机制消化
+2. <strong>煤电容量电费上涨</strong> — 火电厂的"保底费"增加了</p>
+<p>各地系统运行费均有不同幅度上涨，最多地区已超过<strong>十个子项</strong>。</p>
+<hr />
+<h2>系统运行费的四大家族</h2>
+<p>系统运行费看起来杂乱，实际上可以分成四大类：</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>通俗理解</th>
+<th>分摊对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>辅助服务费</strong></td>
+<td>调频、调峰服务的"辛苦费"</td>
+<td>全体用户</td>
+</tr>
+<tr>
+<td><strong>各类损益费</strong></td>
+<td>政策性的"交叉补贴"和"滚动清算"</td>
+<td>工商业用户</td>
+</tr>
+<tr>
+<td><strong>电源容量费</strong></td>
+<td>为电厂"保底能力"买单</td>
+<td>工商业用户</td>
+</tr>
+<tr>
+<td><strong>特殊电源差价结算补偿费</strong></td>
+<td>新能源的"场外补偿"</td>
+<td>工商业用户</td>
+</tr>
+</tbody>
+</table>
+<p>下面逐个拆解。</p>
+<hr />
+<h2>一、辅助服务费：谁在"伺候"电网？</h2>
+<p>辅助服务费主要产生于<strong>调频市场</strong>。</p>
+<p><strong>怎么运作的？</strong>
+- 电网每天发布各时段的调频需求量
+- 符合条件的电厂（比如火电）申报价格和调频性能
+- 调度根据报价和性能决定谁中标、中多少</p>
+<p><strong>费用怎么算？</strong>
+辅助服务需求量跟两个因素挂钩：</p>
+<blockquote>
+<p>调频需求 = 系数 × 新能源预测发电量 + 系数 × 负荷预测用电量</p>
+</blockquote>
+<p>也就是说：<strong>新能源发电越不稳定、负荷波动越大，辅助服务费就越高。</strong></p>
+<p><strong>谁该交这笔钱？</strong>
+目前是"非市场化上网电量 + 工商业用电量"共同分摊。但随着新能源全面入市，新能源不再承担分摊，这笔账会逐步转向工商业用户。</p>
+<hr />
+<h2>二、交叉补贴新增损益：工商业用户在补贴谁？</h2>
+<p>这是一个听起来复杂但逻辑很清晰的费用。</p>
+<p><strong>背景：</strong>
+每个监管周期，政府会核定输配电价——分别针对工商业用户和居民农业用户。</p>
+<p>但居民农业用电执行的是<strong>目录电价</strong>，往往低于成本价。</p>
+<p><strong>中间的差额谁来补？</strong></p>
+<blockquote>
+<p>交叉补贴新增损益 = 居民农业应收输配费 - 工商业实收交叉补贴</p>
+</blockquote>
+<p>这笔钱由工商业用户买单，通过电量分摊。</p>
+<p><strong>清算规则：</strong>
+采用"寅吃卯粮"的跨月滚动清算——</p>
+<pre><code>N月发生 → N+1月计算 → N+2月体现在你的账单里
+</code></pre>
+<p><strong>分摊对象：仅限工商业用户</strong>，居民农业不参与。</p>
+<hr />
+<h2>三、代理采购上网环节线损电量损益：电在输送过程中损耗了谁买单？</h2>
+<p>电从电厂到你家，中间经过输变电设备，有损耗。</p>
+<p><strong>线损折价怎么算？</strong></p>
+<blockquote>
+<p>线损折价 = 上网电价 × 线损率 ÷ (1 - 线损率)</p>
+</blockquote>
+<p>电网每月按理论线损向用户收线损费，但实际损耗电量及其采购成本可能跟理论值有偏差。</p>
+<p><strong>这个偏差就是损益：</strong></p>
+<blockquote>
+<p>实际购电总成本 - 用户实收线损费 = 代理采购上网环节线损电量损益</p>
+</blockquote>
+<p><strong>同样采用N+2月滚动清算机制</strong>，分摊对象为工商业用户。</p>
+<hr />
+<h2>四、峰谷分时损益：你用电的时段在影响电费</h2>
+<p>执行政府行政分时电价的用户，平段、高峰、低谷时段用电量不同，实际收取的电费与"均摊平段电价"之间会有差额。</p>
+<p><strong>谁产生，谁承担</strong>——理论上应该由执行分时电价的用户分摊。</p>
+<p>但部分地区已经把市场化用户剥离出来，只让非市场化的行政分时用户承担；有的地区依然是全体工商业用户共同分摊，责任不够清晰。</p>
+<hr />
+<h2>五、电源容量费：最值得关注的趋势</h2>
+<p>这是系统运行费中<strong>最值得关注、且影响会越来越大的</strong>一项。</p>
+<h3>两种计算机制并行：</h3>
+<table>
+<thead>
+<tr>
+<th>机制</th>
+<th>计算公式</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>容量电价机制</strong></td>
+<td>额定容量 × 容量电价</td>
+<td>补偿机组全部固定成本</td>
+</tr>
+<tr>
+<td><strong>可靠容量补偿机制</strong></td>
+<td>可靠容量 × 补偿电价 × 供需系数</td>
+<td>补偿顶峰时段有效容量</td>
+</tr>
+</tbody>
+</table>
+<h3>可靠容量怎么算？</h3>
+<blockquote>
+<p>可靠容量 = 额定容量 × 可靠容量系数 × (1 - 厂用电率)</p>
+</blockquote>
+<p>火电、气电的可靠容量系数 = 1
+独立储能的可靠容量系数 = 最大放电时长 ÷ 顶峰最长连续小时数</p>
+<h3>⚠️ 一个争议点</h3>
+<p>电源容量费是电厂在"顶峰时段"提供的保障能力价值，但目前分摊方式是<strong>全体工商业用户电量均摊</strong>——不论你这个月有没有在顶峰时段用电。</p>
+<p><strong>这合理吗？</strong> 文章作者认为值得商榷：用了多少顶峰容量，应该按顶峰时段用电量来分摊，而不是全部电量均摊。</p>
+<hr />
+<h2>系统运行费未来会怎么变？</h2>
+<p>随着新型电力系统建设，系统运行成本（辅助服务）会降低，但系统固定成本（容量费）会上升。</p>
+<p><strong>未来电费可能分成三部分：</strong></p>
+<table>
+<thead>
+<tr>
+<th>组成部分</th>
+<th>计费依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>交易电费 + 线损 + 社会责任费</strong></td>
+<td>按总电量分摊</td>
+</tr>
+<tr>
+<td><strong>基本电费</strong></td>
+<td>按变压器容量或最大需量</td>
+</tr>
+<tr>
+<td><strong>峰荷责任费</strong></td>
+<td>按顶峰时段用电量</td>
+</tr>
+</tbody>
+</table>
+<p><strong>这意味着：</strong> 将来电费账单里，容量相关费用会越来越成为"大头"。</p>
+<hr />
+<h2>工厂老板最该关注什么？</h2>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>答案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>系统运行费会继续涨吗？</td>
+<td>大概率会，尤其是容量费部分</td>
+</tr>
+<tr>
+<td>我有没有多交冤枉钱？</td>
+<td>可以核查账单，看各子项占比是否合理</td>
+</tr>
+<tr>
+<td>有没有办法优化？</td>
+<td>提高功率因数（出力调费）、合理安排峰谷时段用电</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>总结</h2>
+<p>系统运行费是电力市场化改革后的新产物，本质是"谁受益、谁承担"的成本分摊机制。</p>
+<p>2026年以来涨价的原因主要是<strong>新能源入市</strong>和<strong>煤电容量费上涨</strong>，未来趋势是<strong>容量费占比持续扩大</strong>。</p>
+<p>看懂这笔钱，不仅能帮你理解电费账单，更重要的是：<strong>认识到电价结构正在重构，买电需要专业判断。</strong></p>
+<hr />
+<h2>看完了，你最关心哪个问题？</h2>
+<ul>
+<li>你的电费账单里，系统运行费占多少比例？</li>
+<li>想知道有没有被多收、能不能优化？</li>
+<li>听到"容量费"越来越贵，想提前做点什么？</li>
+</ul>
+<p><strong>巽通售电可以帮你：</strong> 帮你解读电费账单各子项、分析系统运行费优化空间、制定合理的购电策略。</p>
+<p><strong>现在联系，获取你的专属电费诊断报告。</strong></p>
+<p>📞 联系方式：点击页面右侧「免费咨询」</p>
+<hr />
+<p><em>巽通售电·电力市场观察，工作日更新</em></p>
+</div>
+<div class="article-footer">
+  <div class="cta-box">
+    <h3>&#x770B;&#x5B8C;&#x6709;&#x7591;&#x95EE;&#xFF1F;巽通&#x5E2E;&#x4F60;&#x4E00;&#x5BF9;&#x4E00;&#x5206;&#x6790;</h3>
+    <p>&#x4E13;&#x6CE8;&#x6E56;&#x5317;&#x5DE5;&#x4E1A;&#x7528;电&#x964D;&#x672C;&#xFF0C;&#x5E2E;&#x4F60;&#x89E3;&#x8BFB;电&#x8D26;&#x8D26;&#x5355;&#x3001;&#x5236;&#x5B9A;&#x6700;&#x4F18;&#x8D2D;电&#x7B56;&#x7565;</p>
+    <a href="#tally-open=gDJqJP" class="cta-btn">📞 免费咨询</a>
+  </div>
+</div>
+</body></html>
