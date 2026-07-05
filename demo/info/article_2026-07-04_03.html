@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电力零售市场：售电公司和电网代理购电，到底差在哪？ &#xB7; 巽通售电</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif; color: #1a1a2e; background: #f5f7fa; line-height: 1.7; }
+  :root { --deep-blue: #1a3a6b; --mid-blue: #1e5fa8; --light-blue: #e8f0fb; --gold: #d4a843; --dark: #1a1a2e; --gray: #666; }
+  .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(26,58,107,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212,168,67,0.3); }
+  .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 70px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+  .nav-logo-icon { width: 36px; height: 36px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold; color: var(--deep-blue); }
+  .nav-logo-text { font-size: 20px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav-cta { background: var(--gold); color: var(--deep-blue) !important; padding: 8px 20px; border-radius: 4px; font-weight: 600 !important; }
+  .article-header { background: linear-gradient(135deg, var(--deep-blue), #0f2d5e); color: #fff; padding: 120px 0 60px; text-align: center; }
+  .article-header .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  .article-date { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+  .article-title { font-size: 36px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; }
+  .article-body { max-width: 800px; margin: 0 auto; padding: 0 24px 80px; background: #fff; border-radius: 0 0 12px 12px; box-shadow: 0 4px 24px rgba(26,58,107,0.08); }
+  .article-intro-header { display: flex; justify-content: space-between; align-items: center; padding: 24px 0 0; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--mid-blue); text-decoration: none; font-size: 14px; font-weight: 600; }
+  .back-link:hover { color: var(--deep-blue); }
+  .pub-date { font-size: 13px; color: var(--gray); }
+  .intro-divider { border: none; border-top: 1px solid #eee; margin: 20px 0; }
+  .core-quote { background: var(--light-blue); border-radius: 8px; padding: 20px 24px; margin: 0 0 20px; }
+  .core-quote p { font-size: 17px; color: var(--dark); line-height: 1.8; font-weight: 500; }
+  .meta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .read-time { font-size: 13px; color: var(--gray); }
+  .meta-sep { color: #ddd; }
+  .tag-list { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag-item { font-size: 12px; color: var(--mid-blue); background: var(--light-blue); padding: 2px 10px; border-radius: 10px; font-weight: 500; }
+  .section-divider { border: none; border-top: 2px solid var(--light-blue); margin: 0 0 32px; }
+  .article-body h2 { font-size: 22px; font-weight: 700; color: var(--deep-blue); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--light-blue); }
+  .article-body h3 { font-size: 18px; font-weight: 700; color: var(--dark); margin: 30px 0 12px; }
+  .article-body p { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 16px; }
+  .article-body strong { color: var(--deep-blue); font-weight: 600; }
+  .article-body blockquote { background: var(--light-blue); border-radius: 8px; padding: 14px 20px; margin: 20px 0; font-size: 15px; color: var(--dark); line-height: 1.7; }
+  .article-body ul { margin: 16px 0; padding-left: 24px; }
+  .article-body li { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 8px; }
+  .article-body hr { border: none; border-top: 1px solid #eee; margin: 32px 0; }
+  .table-wrapper { overflow-x: auto; margin: 20px 0; }
+  .article-body table { width: 100%; border-collapse: collapse; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef; }
+  .article-body td, .article-body th { padding: 10px 14px; border: 1px solid #e9ecef; text-align: left; }
+  
+  .article-body tr:nth-child(even) { background: #f8f9fa; }
+  .article-body thead > tr { background: var(--deep-blue); color: #fff; }
+
+  .article-footer { max-width: 800px; margin: 0 auto 60px; padding: 0 24px; }
+  .cta-box { background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue)); border-radius: 12px; padding: 32px; color: #fff; text-align: center; }
+  .cta-box h3 { font-size: 20px; margin-bottom: 10px; }
+  .cta-box p { font-size: 14px; color: rgba(255,255,255,0.8); margin-bottom: 20px; }
+  .cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--deep-blue); padding: 12px 28px; border-radius: 6px; font-size: 15px; font-weight: 700; text-decoration: none; }
+  @media (max-width: 768px) { .article-title { font-size: 26px; } .article-body { padding: 32px 16px 60px; } .nav-links { display: none; } }
+</style>
+<script async src="https://tally.so/widgets/embed.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="../index_new.html" class="nav-logo">
+      <div class="nav-logo-icon">电</div>
+      <span class="nav-logo-text">巽通售电</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index_new.html#hero">首页</a></li>
+      <li><a href="../index_new.html#articles">行业资讯</a></li>
+      <li><a href="../index_new.html#process">合作流程</a></li>
+      <li><a href="../index_new.html#footer">联系我们</a></li>
+      <li><a href="#" class="nav-cta">免费咨询</a></li>
+    </ul>
+  </div>
+</nav>
+<header class="article-header">
+  <div class="container">
+    <div class="article-date">📅 2026-07-03</div>
+    <h1 class="article-title">电力零售市场：售电公司和电网代理购电，到底差在哪？</h1>
+  </div>
+</header>
+<div class="article-body">
+  <div class="article-intro-header">
+    <a href="../index_new.html#articles" class="back-link">&#8592; &#x8FD4;&#x56DE;行业资讯</a>
+    <span class="pub-date">📅 2026-07-03</span>
+  </div>
+  <hr class="intro-divider">
+  <div class="core-quote">
+    <p>买电这件事，表面上是选供电方，实际上是选一种**市场参与方式**。选对了省心省钱，选错了不仅多花钱，中间的资金成本也在悄悄流失。</p>
+  </div>
+  <div class="meta-row">
+    <span class="read-time">⏱ 阅读约 4 分钟</span>
+    <span class="meta-sep">|</span>
+    <div class="tag-list">
+      <span class="tag-item">电力零售</span><span class="tag-item">湖北</span><span class="tag-item">购电策略</span>
+    </div>
+  </div>
+  <p style="font-size:13px;color:#999;margin:0 0 12px;">&#128221; 作者：灵犀 &middot; 2026-07-03</p>
+  <hr class="section-divider">
+<h2>三种买电方式，你是哪一种？</h2>
+<p>工商业用户按购电方式分三类：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>怎么买电</th>
+<th>市场化程度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>直接批发用户</strong></td>
+<td>直接和发电厂/批发市场交易</td>
+<td>完全市场化</td>
+</tr>
+<tr>
+<td><strong>零售用户</strong></td>
+<td>通过售电公司买电</td>
+<td>市场化</td>
+</tr>
+<tr>
+<td><strong>电网代理购电用户</strong></td>
+<td>电网统一代购</td>
+<td>非市场化（行政主导）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2026年起最大的变化：</strong></p>
+<p>我国全面进入分时电价时代。无论用哪种方式买电，分时价格信号都会传到电费账单上。核心差异不再只是"有没有入市场"，而是<strong>"你的分时电价由谁决定"</strong>：</p>
+<ul>
+<li><strong>零售用户</strong> — 分时电价来自市场交易结果，波动大，但反映真实供需</li>
+<li><strong>电网代理购电用户</strong> — 执行政府制定的行政分时，稳定，但信号失真</li>
+</ul>
+<hr />
+<h2>电网代理购电正在发生根本性变化</h2>
+<p>很多人以为电网代理购电就是"计划电"，和市场化没关系。<strong>错。</strong></p>
+<p>以辽宁为例，电网代理购电的电源结构在2025年底到2026年初发生了剧烈变化：</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>优先发电电量占比</th>
+<th>市场化电量占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025年11月</td>
+<td>84%</td>
+<td>16%</td>
+</tr>
+<tr>
+<td>2025年12月</td>
+<td>100%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>2026年1月</td>
+<td>0%</td>
+<td><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>为什么突变？</strong>
+2026年1月，136号文（新能源全面入市）正式执行。新能源电量全部转为市场化身份，不再是"优先发电"。</p>
+<p>结果：<strong>很多省份的电网代理购电工商业用户，已经100%靠市场化电量供电了。</strong></p>
+<p>这意味着：</p>
+<blockquote>
+<p>电网代理购电与售电公司，在批发侧已处于"同台竞争"状态。差异不再是谁能拿到电，而是<strong>谁的市场博弈能力更强</strong>。</p>
+</blockquote>
+<hr />
+<h2>同样是买电，售电公司和电网差在哪？</h2>
+<h3>一、买电策略：主动 vs 被动</h3>
+<p><strong>售电公司：</strong> 主动参与市场
+- 中长期、现货、双边协商……什么方式都参与
+- 会预判价格走势，在允许范围内"多报"或"少报"来优化成本
+- 受偏差考核约束，不能乱来</p>
+<p><strong>电网代理购电：</strong> 被动接受结果
+- 核心目标是"保障供电"，不是盈利
+- 完全基于负荷预测申报，不做策略偏移
+- 预测能力强（掌握全网数据），但不参与价差博弈</p>
+<h3>二、收入模式：不亏 vs 盈利</h3>
+<p><strong>电网代理购电：</strong> 中性定位
+- 收入 = 代理购电价格 × 实际用电量
+- 实际购电成本和收入之间的偏差，通过后续月份平滑调整
+- <strong>不追求盈利，也不承担亏损</strong></p>
+<p><strong>售电公司：</strong> 商业盈利
+- 收入 = 零售电价 × 用户用电量
+- 核心利润来源 = 批发价和零售价之间的<strong>批零价差</strong>
+- 低价批发 + 高价零售 = 赚取差价</p>
+<h3>三、结算周期：滞后 vs 当月清结</h3>
+<table>
+<thead>
+<tr>
+<th>主体</th>
+<th>结算特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>电网代理购电</td>
+<td>月初公布预测价，实际偏差通过N+2月调整</td>
+</tr>
+<tr>
+<td>售电公司</td>
+<td>当月清、当月结，收入与成本时间匹配</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结算滞后这笔账，算下来不少：</strong></p>
+<p>假设月均电费50万，电网代理购电结算滞后约2个月，意味着有<strong>100万资金</strong>在对方账上趴了两个月。</p>
+<p>按年化5%资金成本算：</p>
+<blockquote>
+<p>100万 × 5% ÷ 12个月 × 2个月 ≈ <strong>8333元</strong></p>
+</blockquote>
+<p>这只是资金占用的隐性成本，还不算价格信号失真带来的额外电费支出。</p>
+<h3>四、费用传导：透明 vs 藏在暗处</h3>
+<table>
+<thead>
+<tr>
+<th>主体</th>
+<th>费用传导方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>售电公司</td>
+<td>市场化费用直接打在零售电价里，一目了然</td>
+</tr>
+<tr>
+<td>电网代理购电</td>
+<td>费用藏在系统运行费、偏差电费或均价里，用户感知不到</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>四维度综合对比</h2>
+<table>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>售电公司</th>
+<th>电网代理购电</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>购电来源</strong></td>
+<td>全部来自市场，来源清晰</td>
+<td>新能源入市后可能100%市场化，但来源不够透明</td>
+</tr>
+<tr>
+<td><strong>买电策略</strong></td>
+<td>主动博弈，优化成本</td>
+<td>被动接受，保障供电</td>
+</tr>
+<tr>
+<td><strong>结算周期</strong></td>
+<td>当月清结，资金效率高</td>
+<td>滞后1-2个月，资金占用成本约5000-10000元/月（50万电费为例）</td>
+</tr>
+<tr>
+<td><strong>费用传导</strong></td>
+<td>费用透明，打在明面上</td>
+<td>费用藏在中，感知不到但实际存在</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>一个值得关注的趋势</h2>
+<p>售电公司有一个天然倾向：<strong>尽量少签中长期，多用现货。</strong></p>
+<p>原因很简单——在"现货价格低于中长期"的假设下，现货买得越多，批零价差越大，利润越高。</p>
+<p><strong>但风险也在这里：</strong></p>
+<p>如果价格方向判断错误（现货高于中长期），没被合约覆盖的用电量就要用高价现货来补，<strong>卖得越多，亏得越多</strong>。</p>
+<p>这就是为什么选售电公司不能只看价格——要看它对市场走势的判断能力、风险控制能力和服务水平。</p>
+<hr />
+<h2>工厂老板最该关注什么？</h2>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>关键判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>选售电公司还是继续代理购电？</td>
+<td>代理购电已接近完全市场化，等于放弃了专业服务价值</td>
+</tr>
+<tr>
+<td>价格一样吗？</td>
+<td>不一样，售电公司有批零价差，电网代理购电是中性定位</td>
+</tr>
+<tr>
+<td>资金占用这笔账有多大？</td>
+<td>月均50万电费，滞后2个月结算，资金成本约8000+/月</td>
+</tr>
+<tr>
+<td>风险谁承担？</td>
+<td>售电公司承担市场风险并获取相应利润；电网代理购电平滑偏差</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>总结</h2>
+<p>电力零售市场的格局正在重构：</p>
+<ul>
+<li><strong>新能源全面入市</strong>让电网代理购电的"计划电"色彩几乎消失，两类主体在批发侧实质上已同台竞争</li>
+<li><strong>分时电价全面执行</strong>让价格信号更复杂，没有专业判断能力的用户更难做出正确选择</li>
+<li><strong>结算周期差异</strong>让资金安排成为隐性成本，月均50万电费的用户每年白白流失近10万资金成本</li>
+</ul>
+<p>对于湖北的工厂老板来说，与其继续被动等待，不如主动选择一家熟悉本地规则、有市场判断能力的售电公司——<strong>专业的事交给专业的人，这才是买电最划算的活法。</strong></p>
+<hr />
+<h2>看完了，你最关心哪个问题？</h2>
+<ul>
+<li>不知道自己现在属于哪种购电类型</li>
+<li>想对比一下当前从售电公司买电 vs 继续代理购电，哪个更划算</li>
+<li>想了解售电公司的报价逻辑和风险控制能力</li>
+</ul>
+<p><strong>巽通售电可以帮你：</strong> 专注湖北市场，熟悉本地规则和电网代理购电用户现状，帮你分析当前购电结构、对标市场行情、算清资金占用这笔账，制定最优购电方案。</p>
+<p><strong>现在联系，获取你的专属电费优化方案。</strong></p>
+<p>📞 联系方式：点击页面右侧「免费咨询」或扫描下方二维码</p>
+<hr />
+<p><em>巽通售电·电力市场观察，工作日更新</em></p>
+</div>
+<div class="article-footer">
+  <div class="cta-box">
+    <h3>&#x770B;&#x5B8C;&#x6709;&#x7591;&#x95EE;&#xFF1F;巽通&#x5E2E;&#x4F60;&#x4E00;&#x5BF9;&#x4E00;&#x5206;&#x6790;</h3>
+    <p>&#x4E13;&#x6CE8;&#x6E56;&#x5317;&#x5DE5;&#x4E1A;&#x7528;电&#x964D;&#x672C;&#xFF0C;&#x5E2E;&#x4F60;&#x89E3;&#x8BFB;电&#x8D26;&#x8D26;&#x5355;&#x3001;&#x5236;&#x5B9A;&#x6700;&#x4F18;&#x8D2D;电&#x7B56;&#x7565;</p>
+    <a href="#tally-open=gDJqJP" class="cta-btn">📞 免费咨询</a>
+  </div>
+</div>
+</body></html>
