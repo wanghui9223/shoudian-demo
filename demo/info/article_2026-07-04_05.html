@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电力市场中长期交易：你的电费账单，正在被什么改变？ &#xB7; 巽通售电</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif; color: #1a1a2e; background: #f5f7fa; line-height: 1.7; }
+  :root { --deep-blue: #1a3a6b; --mid-blue: #1e5fa8; --light-blue: #e8f0fb; --gold: #d4a843; --dark: #1a1a2e; --gray: #666; }
+  .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(26,58,107,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212,168,67,0.3); }
+  .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 70px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+  .nav-logo-icon { width: 36px; height: 36px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold; color: var(--deep-blue); }
+  .nav-logo-text { font-size: 20px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav-cta { background: var(--gold); color: var(--deep-blue) !important; padding: 8px 20px; border-radius: 4px; font-weight: 600 !important; }
+  .article-header { background: linear-gradient(135deg, var(--deep-blue), #0f2d5e); color: #fff; padding: 120px 0 60px; text-align: center; }
+  .article-header .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  .article-date { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+  .article-title { font-size: 36px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; }
+  .article-body { max-width: 800px; margin: 0 auto; padding: 0 24px 80px; background: #fff; border-radius: 0 0 12px 12px; box-shadow: 0 4px 24px rgba(26,58,107,0.08); }
+  .article-intro-header { display: flex; justify-content: space-between; align-items: center; padding: 24px 0 0; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--mid-blue); text-decoration: none; font-size: 14px; font-weight: 600; }
+  .back-link:hover { color: var(--deep-blue); }
+  .pub-date { font-size: 13px; color: var(--gray); }
+  .intro-divider { border: none; border-top: 1px solid #eee; margin: 20px 0; }
+  .core-quote { background: var(--light-blue); border-radius: 8px; padding: 20px 24px; margin: 0 0 20px; }
+  .core-quote p { font-size: 17px; color: var(--dark); line-height: 1.8; font-weight: 500; }
+  .meta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .read-time { font-size: 13px; color: var(--gray); }
+  .meta-sep { color: #ddd; }
+  .tag-list { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag-item { font-size: 12px; color: var(--mid-blue); background: var(--light-blue); padding: 2px 10px; border-radius: 10px; font-weight: 500; }
+  .section-divider { border: none; border-top: 2px solid var(--light-blue); margin: 0 0 32px; }
+  .article-body h2 { font-size: 22px; font-weight: 700; color: var(--deep-blue); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--light-blue); }
+  .article-body h3 { font-size: 18px; font-weight: 700; color: var(--dark); margin: 30px 0 12px; }
+  .article-body p { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 16px; }
+  .article-body strong { color: var(--deep-blue); font-weight: 600; }
+  .article-body blockquote { background: var(--light-blue); border-radius: 8px; padding: 14px 20px; margin: 20px 0; font-size: 15px; color: var(--dark); line-height: 1.7; }
+  .article-body ul { margin: 16px 0; padding-left: 24px; }
+  .article-body li { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 8px; }
+  .article-body hr { border: none; border-top: 1px solid #eee; margin: 32px 0; }
+  .table-wrapper { overflow-x: auto; margin: 20px 0; }
+  .article-body table { width: 100%; border-collapse: collapse; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef; }
+  .article-body td, .article-body th { padding: 10px 14px; border: 1px solid #e9ecef; text-align: left; }
+  
+  .article-body tr:nth-child(even) { background: #f8f9fa; }
+  .article-body thead > tr { background: var(--deep-blue); color: #fff; }
+
+  .article-footer { max-width: 800px; margin: 0 auto 60px; padding: 0 24px; }
+  .cta-box { background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue)); border-radius: 12px; padding: 32px; color: #fff; text-align: center; }
+  .cta-box h3 { font-size: 20px; margin-bottom: 10px; }
+  .cta-box p { font-size: 14px; color: rgba(255,255,255,0.8); margin-bottom: 20px; }
+  .cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--deep-blue); padding: 12px 28px; border-radius: 6px; font-size: 15px; font-weight: 700; text-decoration: none; }
+  @media (max-width: 768px) { .article-title { font-size: 26px; } .article-body { padding: 32px 16px 60px; } .nav-links { display: none; } }
+</style>
+<script async src="https://tally.so/widgets/embed.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="../index_new.html" class="nav-logo">
+      <div class="nav-logo-icon">电</div>
+      <span class="nav-logo-text">巽通售电</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index_new.html#hero">首页</a></li>
+      <li><a href="../index_new.html#articles">行业资讯</a></li>
+      <li><a href="../index_new.html#process">合作流程</a></li>
+      <li><a href="../index_new.html#footer">联系我们</a></li>
+      <li><a href="#" class="nav-cta">免费咨询</a></li>
+    </ul>
+  </div>
+</nav>
+<header class="article-header">
+  <div class="container">
+    <div class="article-date">📅 2026-07-05</div>
+    <h1 class="article-title">电力市场中长期交易：你的电费账单，正在被什么改变？</h1>
+  </div>
+</header>
+<div class="article-body">
+  <div class="article-intro-header">
+    <a href="../index_new.html#articles" class="back-link">&#8592; &#x8FD4;&#x56DE;行业资讯</a>
+    <span class="pub-date">📅 2026-07-05</span>
+  </div>
+  <hr class="intro-divider">
+  <div class="core-quote">
+    <p>电力市场的"双轨制"正在消失——计划电的份额年年萎缩，市场化的版图年年扩大。读懂这个趋势，才能知道你的电费为什么会变、以及接下来会怎么变。</p>
+  </div>
+  <div class="meta-row">
+    <span class="read-time">⏱ 阅读约 4 分钟</span>
+    <span class="meta-sep">|</span>
+    <div class="tag-list">
+      <span class="tag-item">电力市场中长期</span><span class="tag-item">湖北</span><span class="tag-item">电价改革</span>
+    </div>
+  </div>
+  <p style="font-size:13px;color:#999;margin:0 0 12px;">&#128221; 作者：灵犀 &middot; 2026-07-05</p>
+  <hr class="section-divider">
+<h2>先搞懂什么是"双轨制"</h2>
+<p>双轨制，简单说就是<strong>同一套电网系统里，计划和市场两套规则同时跑</strong>。</p>
+<p>发电侧：
+- <strong>计划性主体</strong>——执行政府分配的计划电量
+- <strong>市场性主体</strong>——执行市场竞争形成的出清电量</p>
+<p>用电侧：
+- <strong>计划性主体</strong>——优先购电，保障民生用电
+- <strong>市场性主体</strong>——市场化交易，价高者得</p>
+<p>这两条轨在绝大多数时候相安无事，因为整体供需是供大于求。但在极端情况下（比如缺电），两套规则的差异就会暴露出来——计划轨优先保供，市场轨可能要限电。</p>
+<hr />
+<h2>三块电量这些年经历了什么？</h2>
+<p>理解双轨制的关键，是搞清楚<strong>"电从哪里来、价格怎么定"</strong>。</p>
+<p>这要从三块电量说起：</p>
+<h3>第一块：优先发电量</h3>
+<p><strong>过去（2020年889号规则）：</strong>
+居民、农业用电由优先购电保障，来源是价格较低的优先发电量——水电、核电、风电光伏、部分煤电。</p>
+<p><strong>现在（2021年1439号 + 2026年136号文）：</strong>
+- 优先发电电源大幅减少
+- 新能源全面入市，不再享有政府保障性收购
+- 居民农业的供电来源也可能不完全是优先发电了</p>
+<p><strong>关键变化：</strong></p>
+<blockquote>
+<p>新能源虽然"入市"了，但通过"报底价/报量不报价"依然优先出清——相当于用市场手段实现了"保量"。</p>
+</blockquote>
+<h3>第二块：基数电量</h3>
+<p><strong>这是几乎已经成为过去的概念。</strong></p>
+<p>过去，基数电量对应火电机组的"保底计划"——确保非市场化用户有电可用。</p>
+<p><strong>现在：</strong>
+- 2021年1439号文后，煤电全面入市
+- 火电能发多少电，由现货市场出清决定（日前管开机组合，实时管出力多少）
+- 基数电量已无存在必要</p>
+<p><strong>一个遗留现象：</strong>
+部分地区2024年取消新能源统购统销后，给予省内新能源一定的"年小时基数"——但这与传统意义的基数电量性质不同，不能混为一谈。</p>
+<h3>第三块：市场化电量</h3>
+<p><strong>这是份额越来越大的一块。</strong></p>
+<table>
+<thead>
+<tr>
+<th>时间节点</th>
+<th>变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2021年之前</td>
+<td>市场化电量只是补充</td>
+</tr>
+<tr>
+<td>2021年1439号</td>
+<td>工商业目录电价取消，电网代理购电登场</td>
+</tr>
+<tr>
+<td>2026年136号文</td>
+<td>新能源全面入市，优先发电量进一步萎缩</td>
+</tr>
+</tbody>
+</table>
+<p><strong>中长期的属性变了：</strong></p>
+<p>过去，中长期合约是一种"计划分配工具"——电厂签了多少合同，就发多少电。</p>
+<p>现在，中长期合约越来越像"金融对冲工具"——买它是为了对冲现货价格波动的风险，而不是为了锁定电量。</p>
+<blockquote>
+<p><strong>这意味着：选不选中长期、选多少比例，越来越是一种价格判断，而不是计划安排。</strong></p>
+</blockquote>
+<hr />
+<h2>电网代理购电：使命即将完成？</h2>
+<p>这是最容易忽略、但影响最大的一块。</p>
+<h3>什么是电网代理购电？</h3>
+<p>2021年1439号文取消工商业目录电价后，暂时不想或不知道怎么参与市场交易的工商业用户，由电网公司代为购电——这就是<strong>电网代理购电</strong>。</p>
+<h3>代理购电的电源结构变了</h3>
+<p>过去，电网代理购电的来源有两部分：
+1. <strong>优先发电剩余</strong>——低价电源，政府定价
+2. <strong>市场化采购</strong>——电网"被动接受"市场结果</p>
+<p>有些地区优先发电价格高，代理购电价格就高，推动用户入市。</p>
+<p><strong>现在，情况逆转了：</strong>
+- 优先发电量大幅萎缩
+- 多数省份的电网代理购电已<strong>100%来自市场化电量</strong>
+- 代理购电和售电公司，本质上都在市场里买电</p>
+<h3>未来会怎样？</h3>
+<p>两种可能：</p>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>方向一</strong></td>
+<td>售电公司推出网络套餐，吸引小散用户入市——售电公司的活</td>
+</tr>
+<tr>
+<td><strong>方向二</strong></td>
+<td>电网放弃代理购电，通过竞标确定"兜底售电公司"——相当于市场化接盘</td>
+</tr>
+</tbody>
+</table>
+<p>无论哪种，<strong>工商业用户全面入市是大势所趋</strong>，区别只在于主动还是被动。</p>
+<hr />
+<h2>优先购电量：最后一块"计划地"</h2>
+<p>居民和农业用电，目前来看不太可能全面入市：
+- 保障性供电是政策要求
+- 目录电价短期内不会完全取消</p>
+<p>但一个值得注意的趋势：</p>
+<blockquote>
+<p>部分规模化农业生产用电（如大型养殖、农产品加工）已经接近工业用电性质，未来可能转为工商业用户——这相当于提高了用户侧整体市场化比例。</p>
+</blockquote>
+<hr />
+<h2>双轨制的终点在哪里？</h2>
+<p><strong>完全市场化不存在。</strong></p>
+<p>即使在成熟的电力市场里，场外因素也始终影响价格：
+- 容量电价机制（为电厂固定成本买单）
+- 差价结算补偿机制（给某些电源场外补贴）
+- 可靠性容量补偿（顶峰时段的价值认可）</p>
+<p>这些机制的存在，意味着"市场出清价"永远不等于"电厂实际收益"。</p>
+<p><strong>但方向是明确的：</strong>
+- 计划轨逐年萎缩，市场轨逐年扩大
+- 电量合约从"实物属性"走向"金融属性"
+- 买电这件事越来越需要<strong>价格判断能力</strong>，而不是等安排</p>
+<hr />
+<h2>工厂老板最该关注什么？</h2>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>关键判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>我的电是从哪来的？</td>
+<td>如果还在用电网代理购电，你已经在用"市场电"了</td>
+</tr>
+<tr>
+<td>中长期合约还要签吗？</td>
+<td>看价格判断，不签可能面临现货价格波动风险</td>
+</tr>
+<tr>
+<td>市场化的趋势对我有什么影响？</td>
+<td>电价信号越来越真实，越早学会读懂它越划算</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>总结</h2>
+<p>电力市场的双轨制正在重构：</p>
+<ul>
+<li><strong>优先发电量</strong>：从"计划分配"到"市场优先出清"，总量在萎缩</li>
+<li><strong>基数电量</strong>：基本退出历史舞台</li>
+<li><strong>市场化电量</strong>：占比越来越大，中长期回归金融属性</li>
+<li><strong>电网代理购电</strong>：使命即将完成，迟早全面入市</li>
+<li><strong>优先购电量</strong>：居民农业暂不变，但工商业范围在扩大</li>
+</ul>
+<p>对于工厂老板来说，理解这个趋势比计较短期价格波动更重要——<strong>电费账单的背后，是整个电力市场规则正在重新构建</strong>。</p>
+<hr />
+<h2>看完了，你最关心哪个问题？</h2>
+<ul>
+<li>不确定自己的电费里有多少是"计划电"、有多少是"市场电"</li>
+<li>想了解该不该签中长期合约、签多少比例合适</li>
+<li>想提前准备入市，但又担心价格风险</li>
+</ul>
+<p><strong>巽通售电可以帮你：</strong> 帮你分析当前购电结构，解读双轨制演变对你的电费影响，制定适合你的入市节奏和购电策略。</p>
+<p><strong>现在联系，获取你的专属电费优化方案。</strong></p>
+<p>📞 联系方式：点击页面右侧「免费咨询」</p>
+<hr />
+<p><em>巽通售电·电力市场观察，工作日更新</em></p>
+</div>
+<div class="article-footer">
+  <div class="cta-box">
+    <h3>&#x770B;&#x5B8C;&#x6709;&#x7591;&#x95EE;&#xFF1F;巽通&#x5E2E;&#x4F60;&#x4E00;&#x5BF9;&#x4E00;&#x5206;&#x6790;</h3>
+    <p>&#x4E13;&#x6CE8;&#x6E56;&#x5317;&#x5DE5;&#x4E1A;&#x7528;电&#x964D;&#x672C;&#xFF0C;&#x5E2E;&#x4F60;&#x89E3;&#x8BFB;电&#x8D26;&#x8D26;&#x5355;&#x3001;&#x5236;&#x5B9A;&#x6700;&#x4F18;&#x8D2D;电&#x7B56;&#x7565;</p>
+    <a href="#tally-open=gDJqJP" class="cta-btn">📞 免费咨询</a>
+  </div>
+</div>
+</body></html>
