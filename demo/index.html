@@ -630,7 +630,7 @@
 
       <!-- Article 1 - 07-06 最前 -->
       <div class="article-card fade-up">
-        <a href="info/article_2026-07-04_05.html" target="_blank" style="text-decoration:none;color:inherit;">
+        <a href='/info/article_2026-07-04_05' style='text-decoration:none;color:inherit;' target='_blank'>
         <div class="article-card-header">
           <div class="article-date">2026-07-06</div>
           <div class="article-title">电力市场中长期交易：你的电费账单，正在被什么改变？</div>
@@ -648,7 +648,7 @@
 
       <!-- Article 2 -->
       <div class="article-card fade-up" style="transition-delay:0.05s">
-        <a href="info/article_2026-07-04_04.html" target="_blank" style="text-decoration:none;color:inherit;">
+        <a href='/info/article_2026-07-04_04' style='text-decoration:none;color:inherit;' target='_blank'>
         <div class="article-card-header">
           <div class="article-date">2026-07-05</div>
           <div class="article-title">电费账单里的"系统运行费"：到底是什么，怎么算的，谁在承担？</div>
@@ -666,7 +666,7 @@
 
       <!-- Article 3 -->
       <div class="article-card fade-up" style="transition-delay:0.1s">
-        <a href="info/article_2026-07-04_03.html" target="_blank" style="text-decoration:none;color:inherit;">
+        <a href='/info/article_2026-07-04_03' style='text-decoration:none;color:inherit;' target='_blank'>
         <div class="article-card-header">
           <div class="article-date">2026-07-04</div>
           <div class="article-title">电力零售市场：售电公司和电网代理购电，到底差在哪？</div>
@@ -684,7 +684,7 @@
 
       <!-- Article 4 -->
       <div class="article-card fade-up" style="transition-delay:0.15s">
-        <a href="info/article_2026-07-04_02.html" target="_blank" style="text-decoration:none;color:inherit;">
+        <a href='/info/article_2026-07-04_02' style='text-decoration:none;color:inherit;' target='_blank'>
         <div class="article-card-header">
           <div class="article-date">2026-07-03</div>
           <div class="article-title">电网代理购电：为什么你的电费比隔壁厂贵？</div>
@@ -702,7 +702,7 @@
 
       <!-- Article 5 - 07-02 最后 -->
       <div class="article-card fade-up" style="transition-delay:0.2s">
-        <a href="info/article_2026-07-04_01.html" target="_blank" style="text-decoration:none;color:inherit;">
+        <a href='/info/article_2026-07-04_01' style='text-decoration:none;color:inherit;' target='_blank'>
         <div class="article-card-header">
           <div class="article-date">2026-07-02</div>
           <div class="article-title">分布式光伏发电与基本电费：很多人算漏了的一笔账</div>
@@ -904,6 +904,14 @@ function searchMarket() {
     return;
   }
 
+  // Check if marketData is loaded
+  if (typeof marketData === 'undefined' || !marketData) {
+    resultsEl.style.display = 'block';
+    resultsEl.innerHTML = '<div class="market-empty">数据加载中，请稍候...</div>';
+    statsEl.textContent = '';
+    return;
+  }
+
   const matches = marketData.filter(d =>
     d.n.toLowerCase().includes(kw) || d.c.toLowerCase().includes(kw)
   );
@@ -926,7 +934,6 @@ function searchMarket() {
 
   const total = matches.length;
   statsEl.textContent = total > 20 ? '找到 ' + total + ' 条匹配，前20条已显示，请缩小搜索范围' : '共找到 ' + total + ' 条匹配';
-  hintEl.textContent = '点击结果可复制信用代码';
 }
 
 function copyCode(code) {
@@ -938,7 +945,7 @@ function copyCode(code) {
 
 // Load market data
 </script>
-<script src="market_data.js"></script>
+<script async src="market_data.js"></script>
 <script>
 
 </script>
