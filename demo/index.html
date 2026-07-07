@@ -393,10 +393,10 @@
     </div>
     <div style="max-width:720px; margin:0 auto;">
       <div style="background: var(--light-gray); border-radius: 16px; padding: 32px; margin-bottom: 20px;">
-        <h3 style="font-size:18px; color:var(--deep-blue); margin-bottom:8px; text-align:center;">🔍 输入企业名称或统一社会信用代码</h3>        <input type="text" id="marketSearch" placeholder="请输入企业名称或信用代码..." autocomplete="off"
+        <h3 style="font-size:18px; color:var(--deep-blue); margin-bottom:8px; text-align:center;">🔍 输入企业名称或统一社会信用代码</h3>        <input type="text" id="marketSearch" onfocus="ensureMarketData()"  placeholder="请输入企业名称或信用代码..." autocomplete="off"
           style="width:100%; padding:14px 18px; font-size:15px; border:2px solid var(--light-blue); border-radius:10px; outline:none; font-family:inherit; box-sizing:border-box;"
-          oninput="searchMarket()">
-        <p style="font-size:12px; color:var(--gray); margin-top:12px; text-align:center;">数据来源：湖北电力交易中心 &nbsp;|&nbsp; 已加载 <strong style="color:var(--gold)">12493</strong> 条企业数据 &nbsp;&nbsp;<span style="font-size:11px;color:#aaa;">（实时更新）</span></p>
+          oninput="ensureMarketData()">
+        <p style="font-size:12px; color:var(--gray); margin-top:12px; text-align:center;">数据来源：湖北电力交易中心 &nbsp;|&nbsp; <span id="dataStatus">请输入企业名称开始查询</span> &nbsp;&nbsp;<span style="font-size:11px;color:#aaa;">（实时更新）</span></p>
 
       </div>
       <div id="searchResults" style="display:none;"></div>
@@ -894,6 +894,50 @@
 </script>
 
 <script>
+// Lazy load market data on demand
+var marketDataLoaded = false;
+var marketDataLoading = false;
+
+function loadMarketData() {
+  if (marketDataLoaded || marketDataLoading) return;
+  marketDataLoading = true;
+  var statsEl = document.getElementById('searchStats');
+  var resultsEl = document.getElementById('searchResults');
+  resultsEl.style.display = 'block';
+  resultsEl.innerHTML = '<div class="market-empty">首次加载企业数据，请稍候...</div>';
+  
+  var script = document.createElement('script');
+  script.src = 'market_data.js';
+  script.onload = function() {
+    marketDataLoaded = true;
+    marketDataLoading = false;
+    updateDataStatus();
+    // Auto-trigger search if there's input
+    var kw = document.getElementById('marketSearch').value.trim();
+    if (kw) searchMarket();
+  };
+  script.onerror = function() {
+    marketDataLoading = false;
+    resultsEl.innerHTML = '<div class="market-empty">数据加载失败，请刷新页面重试</div>';
+  };
+  document.head.appendChild(script);
+}
+
+function ensureMarketData() {
+  if (!marketDataLoaded && !marketDataLoading) {
+    loadMarketData();
+  } else if (marketDataLoaded) {
+    searchMarket();
+  }
+}
+
+function updateDataStatus() {
+  var statusEl = document.getElementById('dataStatus');
+  if (statusEl && marketData) {
+    statusEl.innerHTML = '已加载 <strong style="color:var(--gold)">' + marketData.length + '</strong> 条企业数据';
+  }
+}
+
 function searchMarket() {
   const kw = document.getElementById('marketSearch').value.trim().toLowerCase();
   const resultsEl = document.getElementById('searchResults');
@@ -907,8 +951,10 @@ function searchMarket() {
   // Check if marketData is loaded
   if (typeof marketData === 'undefined' || !marketData) {
     resultsEl.style.display = 'block';
-    resultsEl.innerHTML = '<div class="market-empty">数据加载中，请稍候...</div>';
+    resultsEl.innerHTML = '<div class="market-empty">正在加载企业数据，请稍候...</div>';
     statsEl.textContent = '';
+    // Trigger lazy load
+    loadMarketData();
     return;
   }
 
@@ -945,7 +991,7 @@ function copyCode(code) {
 
 // Load market data
 </script>
-<script async src="market_data.js"></script>
+
 <script>
 
 </script>
