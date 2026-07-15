@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一度电的价格里，一半是电的身价，一半是路的代价 · 巽通售电</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif; color: #1a1a2e; background: #f5f7fa; line-height: 1.7; }
+  :root { --deep-blue: #1a3a6b; --mid-blue: #1e5fa8; --light-blue: #e8f0fb; --gold: #d4a843; --dark: #1a1a2e; --gray: #666; }
+  .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(26,58,107,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212,168,67,0.3); }
+  .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 70px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+  .nav-logo-icon { width: 36px; height: 36px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold; color: var(--deep-blue); }
+  .nav-logo-text { font-size: 20px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav-cta { background: var(--gold); color: var(--deep-blue) !important; padding: 8px 20px; border-radius: 4px; font-weight: 600 !important; }
+  .article-header { background: linear-gradient(135deg, var(--deep-blue), #0f2d5e); color: #fff; padding: 120px 0 60px; text-align: center; }
+  .article-header .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  .article-date { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+  .article-title { font-size: 36px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; }
+  .article-body { max-width: 800px; margin: 0 auto; padding: 0 24px 80px; background: #fff; border-radius: 0 0 12px 12px; box-shadow: 0 4px 24px rgba(26,58,107,0.08); }
+  .article-intro-header { display: flex; justify-content: space-between; align-items: center; padding: 24px 0 0; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--mid-blue); text-decoration: none; font-size: 14px; font-weight: 600; }
+  .back-link:hover { color: var(--deep-blue); }
+  .pub-date { font-size: 13px; color: var(--gray); }
+  .intro-divider { border: none; border-top: 1px solid #eee; margin: 20px 0; }
+  .core-quote { background: var(--light-blue); border-radius: 8px; padding: 20px 24px; margin: 0 0 20px; }
+  .core-quote p { font-size: 17px; color: var(--dark); line-height: 1.8; font-weight: 500; }
+  .meta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .read-time { font-size: 13px; color: var(--gray); }
+  .meta-sep { color: #ddd; }
+  .tag-list { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag-item { font-size: 12px; color: var(--mid-blue); background: var(--light-blue); padding: 2px 10px; border-radius: 10px; font-weight: 500; }
+  .section-divider { border: none; border-top: 2px solid var(--light-blue); margin: 0 0 32px; }
+  .article-body h2 { font-size: 22px; font-weight: 700; color: var(--deep-blue); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--light-blue); }
+  .article-body h3 { font-size: 18px; font-weight: 700; color: var(--dark); margin: 30px 0 12px; }
+  .article-body p { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 16px; }
+  .article-body strong { color: var(--deep-blue); font-weight: 600; }
+  .article-body blockquote { background: var(--light-blue); border-radius: 8px; padding: 14px 20px; margin: 20px 0; font-size: 15px; color: var(--dark); line-height: 1.7; }
+  .article-body ul { margin: 16px 0; padding-left: 24px; }
+  .article-body li { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 8px; }
+  .article-body hr { border: none; border-top: 1px solid #eee; margin: 32px 0; }
+  .table-wrapper { overflow-x: auto; margin: 20px 0; }
+  .article-body table { width: 100%; border-collapse: collapse; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef; }
+  .article-body td, .article-body th { padding: 10px 14px; border: 1px solid #e9ecef; text-align: left; }
+  .article-body tr:nth-child(even) { background: #f8f9fa; }
+  .article-body thead > tr { background: var(--deep-blue); color: #fff; }
+  .article-footer { max-width: 800px; margin: 0 auto 60px; padding: 0 24px; }
+  .cta-box { background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue)); border-radius: 12px; padding: 32px; color: #fff; text-align: center; }
+  .cta-box h3 { font-size: 20px; margin-bottom: 10px; }
+  .cta-box p { font-size: 14px; color: rgba(255,255,255,0.8); margin-bottom: 20px; }
+  .cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--deep-blue); padding: 12px 28px; border-radius: 6px; font-size: 15px; font-weight: 700; text-decoration: none; }
+  @media (max-width: 768px) { .article-title { font-size: 26px; } .article-body { padding: 32px 16px 60px; } .nav-links { display: none; } }
+</style>
+<script async src="https://tally.so/widgets/embed.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="/index_new.html" class="nav-logo">
+      <div class="nav-logo-icon">电</div>
+      <span class="nav-logo-text">巽通售电</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/index_new.html#hero">首页</a></li>
+      <li><a href="/index_new.html#articles">行业资讯</a></li>
+      <li><a href="/index_new.html#process">合作流程</a></li>
+      <li><a href="/index_new.html#footer">联系我们</a></li>
+      <li><a href="#" class="nav-cta">免费咨询</a></li>
+    </ul>
+  </div>
+</nav>
+<header class="article-header">
+  <div class="container">
+    <div class="article-date">📅 2026-07-15</div>
+    <h1 class="article-title">一度电的价格里，一半是电的身价，一半是路的代价</h1>
+  </div>
+</header>
+<div class="article-body">
+  <div class="article-intro-header">
+    <a href="/index_new.html#articles" class="back-link">← 返回行业资讯</a>
+    <span class="pub-date">📅 2026-07-15</span>
+  </div>
+  <hr class="intro-divider">
+  <div class="core-quote">
+    <p>工商业电费里，接近一半不是买电的钱，是买路的钱。下次再看电费账单，别只盯着总数——问问自己：有多少是买电的，有多少是买路的？这个问题的答案，可能价值百万。</p>
+  </div>
+  <div class="meta-row">
+    <span class="read-time">⏱ 阅读约 5 分钟</span>
+    <span class="meta-sep">|</span>
+    <div class="tag-list">
+      <span class="tag-item">输配电价</span><span class="tag-item">电费账单</span><span class="tag-item">用电成本</span><span class="tag-item">电力市场</span>
+    </div>
+  </div>
+  <p style="font-size:13px;color:#999;margin:0 0 12px;">✍️ 作者：灵犀 · 2026-07-15</p>
+  <hr class="section-divider">
+
+<h2>你有没有认真看过公司的电费账单？</h2>
+<p>很多老板第一次细看都会懵。除了电价本身，后面还跟着一串：输配电价、上网环节线损费用、系统运行费、政府性基金及附加。每一项看着不起眼，加起来是一笔实实在在的钱。</p>
+<p>可你家里的电费单简单得多，一度电几毛钱，一个数搞定。</p>
+<p>同样是用电，凭什么公司的账单像论文，家里的账单像便签？今天就把这张账单拆开，看看<strong>一度电从发电厂走到你手里，路上到底被收了几道钱</strong>。</p>
+
+<h2>一、出厂价只是起点</h2>
+<p>一度电从发电厂出来，身上贴的第一张价签叫<strong>上网电价</strong>，也就是电的出厂价。</p>
+<p>火电看煤价——煤贵了，电就贵；风光看天——太阳大、风大，发电多，价格就低；水电看日历——汛期来水多，电就便宜。</p>
+<p>但出厂价离你手里的到户价，还差着一整段路。</p>
+<p>打个比方：网购一件衣服，出厂价50块，到你手里可能99块。中间差的是仓储、干线物流、快递派送。电也一样，出厂之后要升压进大电网，可能跨越上千公里，再一级级降压，最后送进你家插座。<strong>这段路上的每一环，都有成本。</strong></p>
+<p>西部的风电光伏送到东部沿海，走的是特高压线路，相当于国家级电力高速。一条特高压线路投资动辄两三百亿元，建设、维护、调度都要花钱——这就形成了跨省跨区输电价格，<strong>相当于高速费</strong>。</p>
+
+<h2>二、最关键的过路费：省级输配电价</h2>
+<p>电进了省之后，才到最关键的一段。</p>
+<p>省级电网像一张分层的道路网：</p>
+<ul>
+<li><strong>500kV、220kV 是主干道</strong>——大型钢铁厂、电解铝企业直接接在这里</li>
+<li><strong>110kV、35kV 是省道县道</strong>——工业园区、大型制造企业走这条路</li>
+<li><strong>10kV 及以下是毛细血管</strong>——商业综合体、中小工厂在这里</li>
+<li><strong>低压380V/220V 是小巷子</strong>——小商铺、居民用电</li>
+</ul>
+<p>这段路的费用，就是<strong>省级输配电价</strong>，也就是工商业电价里的<strong>核心过路费</strong>。</p>
+<p>这笔钱不是电网想收多少收多少。定价方法叫<strong>"准许成本加合理收益"</strong>——监管部门一项项审核电网的折旧、运维、人工成本，跟主业无关的投资直接剔除，最后在合理成本上加一个受控的回报率。</p>
+<p><strong>说白了，电网是收费站，但收费标准是政府一条条核出来的，不是随便收的。</strong></p>
+<blockquote>
+<p><strong>电压等级越高，过路费越便宜；电压等级越低，过路费越贵。</strong></p>
+</blockquote>
+<p>220kV的大工厂直接用主干网，占用的环节少。低压用户背后是一层层变电站、一条条配电线路，占用的电网资源深，费用自然高。同样一度电，走的路不一样，过路费差得远。</p>
+<table>
+<thead>
+<tr><th>接入电压等级</th><th>典型用户</th><th>输配电价水平</th></tr>
+</thead>
+<tbody>
+<tr><td>220kV</td><td>大型钢铁厂、电解铝</td><td>最低，约几分钱一度</td></tr>
+<tr><td>110kV / 35kV</td><td>工业园区、大型制造企业</td><td>中等</td></tr>
+<tr><td>10kV</td><td>商业综合体、中小工厂</td><td>较高</td></tr>
+<tr><td>低压380V/220V</td><td>小商铺、居民</td><td>最高，可能比220kV贵一倍以上</td></tr>
+</tbody>
+</table>
+
+<h2>三、路上漏掉的电，也要你买单</h2>
+<p>电在路上跑，是有损耗的。</p>
+<p>线路有电阻，变压器会发热，一部分电就这么变成热量散掉了。这叫<strong>线损</strong>。</p>
+<p>这笔钱现在被单独列示出来了。算法很简单：</p>
+<blockquote>
+<p><strong>线损费用 ≈ 上网电价 × 核定线损率</strong></p>
+</blockquote>
+<p>全国大部分省份的核定综合线损率在<strong>5%左右</strong>——意思是你每买100度电，就有大约5度在路上"蒸发"了，而这5度的钱由用户分摊。</p>
+<p>还有一项叫<strong>系统运行费</strong>。电力系统要实时保持发用平衡，调度机构指挥谁多发谁少发，抽水蓄能电站低谷抽水、高峰放水，这些维持系统稳定运行的钱，也摊进了这一项。</p>
+
+<h2>四、你的电费账单，到底在交什么钱？</h2>
+<p>现在可以把工商业电费账单完整拆开了：</p>
+<table>
+<thead>
+<tr><th>账单项目</th><th>这笔钱买的是什么</th><th>特点</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>代理购电价格</strong></td><td>电本身，发电侧成本</td><td>随市场波动</td></tr>
+<tr><td><strong>输配电价</strong></td><td>使用电网的过路费</td><td>政府核定，相对稳定</td></tr>
+<tr><td><strong>上网环节线损费用</strong></td><td>路上漏掉的电</td><td>约为购电成本的5%</td></tr>
+<tr><td><strong>系统运行费</strong></td><td>维持系统平衡的钱</td><td>逐年有变化</td></tr>
+<tr><td><strong>政府性基金及附加</strong></td><td>水利基金、可再生能源附加等</td><td>政策性收费</td></tr>
+</tbody>
+</table>
+<p><strong>核心结论：输配电价加上线损、系统运行费这些相关费用，在工商业终端电价里的占比通常能达到三成到五成。</strong></p>
+<blockquote>
+<p><strong>你交的电费里，接近一半可能都不是买电的钱，是买路的钱。</strong></p>
+</blockquote>
+<p>居民电价为什么简单？因为居民和农业用电还是政府定价的打包价，所有环节合并成一个数。而且长期以来存在交叉补贴，工商业用户多承担一些，换居民电价的稳定。<strong>你公司账单复杂，某种程度上是替你家里那张便签买了单。</strong></p>
+
+<h2>五、这笔账，算不清楚要吃亏</h2>
+<p>对用电大户来说，输配电价是底盘。</p>
+<p>它决定了到户价格的下限，直接影响套餐设计、客户报价和利润测算。</p>
+<blockquote>
+<p>同一个客户，接入电压等级不同，成本能差出<strong>几分钱一度</strong>。一年下来，就是<strong>几十万甚至上百万</strong>的差距。</p>
+</blockquote>
+<p>举个例子：某工厂原本接的是10kV，如果能协调供电公司改接到35kV，输配电价每度能降3—5分钱。一年用电1000万度的话，<strong>一年省下30—50万</strong>。</p>
+<p>这不是小钱。</p>
+<p>电力市场改革这些年干的一件大事，就是把这笔账拆清楚：<strong>发电的钱交给市场博弈，电网的钱由政府核定，损耗和系统的钱单独列示。</strong> 账单变复杂了，但每一分钱去了哪，反而更清楚了。</p>
+
+<h2>看完了，你最关心哪个问题？</h2>
+<ul>
+<li>想知道自家电费里，有多少是"买路钱"</li>
+<li>想评估接入电压等级是否有优化空间</li>
+<li>想算算自家一年能省下多少"过路费"</li>
+<li>正在考虑找一家专业的售电公司做用电诊断</li>
+</ul>
+<p><strong>巽通售电可以帮你：</strong> 拆解电费账单，厘清每一分钱的去向，评估电压等级优化空间，计算你能省下多少"过路费"。</p>
+<p><strong>现在联系，获取你的专属电费分析报告。</strong></p>
+<p>📞 联系方式：点击页面右侧「免费咨询」</p>
+<hr>
+<p><em>巽通售电·电力市场观察，工作日更新</em></p>
+</div>
+<div class="article-footer">
+  <div class="cta-box">
+    <h3>电费账单太复杂？巽通帮你一对一分析</h3>
+    <p>专注湖北工业用户用电降本，帮你解读电费账单、制定最优购电策略</p>
+    <a href="#tally-open=gDJqJP" class="cta-btn">📞 免费咨询</a>
+  </div>
+</div>
+</body>
