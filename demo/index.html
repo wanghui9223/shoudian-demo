@@ -491,7 +491,7 @@
         </tbody>
       </table>
       </div>
-      <p style="font-size:12px;color:#999;margin-top:12px;">* 代理购电价格：电压等级：单一制 不满1千伏 ｜ 平段/尖峰/低谷/峰谷价差：电压等级：两部制 1-10（20）千伏 ｜ 单位：元/千瓦时 ｜ 数据来源：国网湖北省电力公司</p>
+      <p style="font-size:12px;color:#999;margin-top:12px;">* 电压等级：两部制 1-10（20）千伏 ｜ 单位：元/千瓦时 ｜ 数据来源：国网湖北省电力公司</p>
     </div></div>
 
     <!-- 效果二：趋势图 -->
@@ -1061,7 +1061,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var val = ds.data[pi];
             var xOffset = (pi === 0) ? 12 : (pi === 5) ? -12 : (pi === 6) ? -12 : (pi === 1) ? 8 : (pi === 4) ? -8 : 0;
             var x = point.x + xOffset;
-            var y = point.y - 16;
+            var y = (di === 3) ? point.y + 20 : point.y - 16;
             ctx.save();
             ctx.font = "9px Microsoft YaHei";
             ctx.fillStyle = colors[di];
@@ -1158,7 +1158,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var val = ds.data[pi];
             var xOffset = (pi === 0) ? 12 : (pi === 5) ? -12 : (pi === 6) ? -12 : (pi === 1) ? 8 : (pi === 4) ? -8 : 0;
             var x = point.x + xOffset;
-            var y = point.y - 16;
+            var y = (di === 3) ? point.y + 20 : point.y - 16;
             ctx.save();
             ctx.font = "9px Microsoft YaHei";
             ctx.fillStyle = colors[di];
